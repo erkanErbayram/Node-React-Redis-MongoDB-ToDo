@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+
 import TodoList from './components/TodoList';
 import NewTodo from './components/NewTodo';
 import UpdateTodo from './components/UpdateTodo';
@@ -27,13 +28,13 @@ function App() {
           </ul>
         </nav>
 
-        <Switch>
+        <Routes>
           <Route path="/" exact component={TodoList} />
           <Route path="/new" component={NewTodo} />
           <Route path="/update/:id" component={UpdateTodo} />
           <Route path="/completed" component={CompletedTodos} />
           <Route path="/incomplete" component={IncompleteTodos} />
-        </Switch>
+        </Routes>
       </div>
     </Router>
   );

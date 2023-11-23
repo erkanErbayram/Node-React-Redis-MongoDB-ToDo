@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function UpdateTodo() {
   const { id } = useParams();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const history = useHistory();
+  const history = useNavigate();
 
   useEffect(() => {
     const fetchTodo = async () => {

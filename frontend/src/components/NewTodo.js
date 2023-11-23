@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function NewTodo() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
