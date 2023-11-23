@@ -10,7 +10,7 @@ function NewTodo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/todos', { title, description });
+      await axios.post('http://localhost:5000/api/todos', { title, description });
       history.push('/');
     } catch (error) {
       console.error('Error creating todo:', error);

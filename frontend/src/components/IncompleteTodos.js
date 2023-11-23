@@ -7,7 +7,7 @@ function IncompleteTodos() {
   useEffect(() => {
     const fetchIncompleteTodos = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/todos/incomplete');
+        const response = await axios.get('http://localhost:5000/api/todos/incomplete');
         setIncompleteTodos(response.data);
       } catch (error) {
         console.error('Error fetching incomplete todos:', error);

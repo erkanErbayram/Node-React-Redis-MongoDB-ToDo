@@ -15,7 +15,7 @@ dbConnect();
 app.get('/',(req,res)=>{
     res.send("ToDo List API")
 })
-app.use("/api/todo", require("./routes/router"));
+app.use("/api/todos", require("./routes/router"));
 app.listen(process.env.PORT, () => {
   console.log(`Server Running on port ${process.env.PORT}`);
 });

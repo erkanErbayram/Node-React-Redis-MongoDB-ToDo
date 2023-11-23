@@ -11,7 +11,7 @@ function UpdateTodo() {
   useEffect(() => {
     const fetchTodo = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/todos/${id}`);
+        const response = await axios.get(`http://localhost:5000/api/todos/${id}`);
         const todo = response.data;
         setTitle(todo.title);
         setDescription(todo.description);
@@ -26,7 +26,7 @@ function UpdateTodo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/todos/${id}`, { title, description });
+      await axios.patch(`http://localhost:5000/api/todos/${id}`, { title, description });
       history.push('/');
     } catch (error) {
       console.error('Error updating todo:', error);

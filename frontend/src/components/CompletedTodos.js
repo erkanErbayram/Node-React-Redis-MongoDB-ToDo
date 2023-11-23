@@ -7,7 +7,7 @@ function CompletedTodos() {
   useEffect(() => {
     const fetchCompletedTodos = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/todos/completed');
+        const response = await axios.get('http://localhost:5000/api/todos/completed');
         setCompletedTodos(response.data);
       } catch (error) {
         console.error('Error fetching completed todos:', error);
