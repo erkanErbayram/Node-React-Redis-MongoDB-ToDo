@@ -6,7 +6,7 @@ function UpdateTodo() {
   const { id } = useParams();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTodo = async () => {
@@ -27,7 +27,7 @@ function UpdateTodo() {
     e.preventDefault();
     try {
       await axios.patch(`http://localhost:5000/api/todos/${id}`, { title, description });
-      history.push('/');
+      navigate('/');
     } catch (error) {
       console.error('Error updating todo:', error);
     }

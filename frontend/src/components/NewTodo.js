@@ -5,13 +5,13 @@ import axios from 'axios';
 function NewTodo() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post('http://localhost:5000/api/todos', { title, description });
-      history.push('/');
+      navigate('/');
     } catch (error) {
       console.error('Error creating todo:', error);
     }
