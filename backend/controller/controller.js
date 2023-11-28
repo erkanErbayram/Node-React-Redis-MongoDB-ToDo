@@ -5,11 +5,18 @@ const getTodo = async (req, res) => {
   let value;
   try {
     let redisValue = await redisClient.get(key);
-     if (redisValue!= null && redisValue.length > 0) {
-      value=redisValue;
+    if (redisValue != null && redisValue.length > 0) {
+      const parsedData = JSON.parse(redisValue);
+      value = parsedData.map((todo) => ({
+        title: todo.title,
+        description: todo.description,
+        completed: todo.completed,
+      }));
     } else {
       value = await Todo.find({ completed: false });
-    } 
+      redisClient.SETEX(key, 3600, JSON.stringify(value));
+      console.log("Todos from MongoDB");
+    }
     res.json(value);
   } catch (error) {
     console.error("Hata:", error);
